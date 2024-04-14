@@ -1,0 +1,35 @@
+.show-box {
+    @apply mr-5 mb-7 drop-shadow-md;
+}
+
+.movie-card {
+  @apply inline-block relative rounded-md;
+}
+
+.movie-card__image-container {
+  @apply overflow-hidden rounded-md;
+}
+
+.movie-card__image {
+  @apply transition ease-in-out duration-1000;
+}
+
+.movie-card:hover .movie-card__image {
+  @apply transition ease-in-out duration-1000 brightness-50 scale-110;
+}
+
+.movie-card__data-container {
+  @apply w-full absolute -bottom-0 text-white py-6 px-2;
+}
+
+.movie-card__title {
+  @apply font-bold mb-3;
+}
+
+.movie-card__vote-average {
+  @apply flex text-xs;
+}
+
+.movie-card__value {
+  @apply flex flex-col justify-center ml-1;
+}
