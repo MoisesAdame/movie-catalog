@@ -1,0 +1,11 @@
+.movie-slider__container {
+  @apply flex flex-col h-80 ;
+}
+
+.movie-slider__container__title {
+  @apply text-lg font-bold mb-5;
+}
+
+.movie-slider__container__slider {
+  @apply flex h-full justify-between overflow-scroll;
+}

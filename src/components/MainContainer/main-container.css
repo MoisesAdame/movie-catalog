@@ -1,5 +1,5 @@
 .main-container {
-  @apply flex flex-col mx-10;
+  @apply flex flex-col ml-5 mr-0;
 }
 
 .main-container__title {
