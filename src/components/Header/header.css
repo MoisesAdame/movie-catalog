@@ -1,0 +1,19 @@
+.header__main-conatiner {
+    @apply flex justify-between h-20 bg-white mb-5 items-center px-10 drop-shadow-md;
+}
+
+.main-container__title {
+    @apply text-lg font-bold;
+}
+
+.main-conatiner__list-container {
+    @apply flex space-x-7;
+}
+
+.list-container__element {
+    @apply text-xs text-gray-600 hover:text-green-600;
+}
+
+.list-container__element--active {
+    @apply text-red-600;
+}
