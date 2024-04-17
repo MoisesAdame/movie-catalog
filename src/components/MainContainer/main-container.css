@@ -1,0 +1,7 @@
+.main-container {
+  @apply flex flex-col mx-10;
+}
+
+.main-container__title {
+  @apply text-lg font-bold;
+}
