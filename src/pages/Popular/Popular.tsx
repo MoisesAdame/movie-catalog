@@ -1,10 +1,13 @@
 import React from 'react';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 const Popular = () => {
   return (
-    <div>
-      Popular Page
-    </div>
+    <MainContainer title='Popular'>
+      <p>
+        Hola Mundo
+      </p>
+    </MainContainer>
   );
 };
 
