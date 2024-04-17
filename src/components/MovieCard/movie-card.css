@@ -1,5 +1,5 @@
 .show-box {
-  @apply h-full aspect-[2/3] mr-5 mb-7 drop-shadow-md;
+  @apply h-full aspect-[2/3] mr-5 drop-shadow-md;
 }
 
 .movie-card {
@@ -19,7 +19,7 @@
 }
 
 .movie-card__data-container {
-  @apply w-full absolute -bottom-0 text-white py-6 px-2;
+  @apply flex flex-col justify-end w-full h-full absolute -bottom-0 rounded-md text-white py-6 px-2 bg-gradient-to-t bg-black/10;
 }
 
 .movie-card__title {
