@@ -1,5 +1,5 @@
 .movie-slider__container {
-  @apply flex flex-col h-80;
+  @apply flex flex-col h-80 mb-5;
 }
 
 .movie-slider__container__title {
@@ -7,5 +7,5 @@
 }
 
 .movie-slider__container__slider {
-  @apply flex h-full justify-between overflow-scroll;
+  @apply flex h-full justify-between overflow-x-scroll overflow-y-hidden;
 }

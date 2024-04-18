@@ -1,5 +1,5 @@
 .header__main-conatiner {
-    @apply flex justify-between h-20 bg-white mb-5 items-center px-10 drop-shadow-md;
+    @apply sticky top-0 z-50 flex justify-between h-20 bg-white mb-5 items-center px-10 drop-shadow-md;
 }
 
 .header__main-container__title {
