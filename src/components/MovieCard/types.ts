@@ -15,4 +15,5 @@ export interface IMovieCard {
    * Average calification given by the viewers.
    */
   voteAverage: number;
+  movieId: number;
 }

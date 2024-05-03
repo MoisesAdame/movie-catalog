@@ -21,6 +21,7 @@ export const MarioBros: Story = {
     genreId: movies[0].genre_ids[0],
     posterPath: IMAGE_SOURCE + movies[0].poster_path,
     voteAverage: movies[0].vote_average,
+    movieId: movies[0].id,
   },
 };
 
@@ -30,5 +31,6 @@ export const Other: Story = {
       genreId: movies[1].genre_ids[0],
       posterPath: IMAGE_SOURCE + movies[1].poster_path,
       voteAverage: movies[1].vote_average,
+      movieId: movies[1].id,
     },
   };

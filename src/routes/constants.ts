@@ -19,4 +19,8 @@ export const ROUTES = {
         path: '/favorites/view_all',
         name: 'MY FAVORITES'
     },
+    SHOW: {
+        path: '/show/',
+        name: 'SHOW',
+    },
 };

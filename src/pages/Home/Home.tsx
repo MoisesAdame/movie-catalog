@@ -5,20 +5,10 @@ const Home = () => {
   return (
     <MainContainer>
       <MovieSlider
+      movies={[]}
         title='Popular'
       />
-      <MovieSlider
-        title='Popular'
-      />
-      <MovieSlider
-        title='Popular'
-      />
-      <MovieSlider
-        title='Popular'
-      />
-      <MovieSlider
-        title='Popular'
-      />
+      
     </MainContainer>
   );
 };

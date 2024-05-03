@@ -2,17 +2,19 @@ import React, { useEffect } from 'react';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { getPopularMovies } from '../../services/movies/getPopularMovies';
 import { IMovieResponse } from '../../services/movies/types';
+import { MovieSlider } from '../../components';
 
 const Popular: React.FC = () => {
   const [movies, setMovies] = React.useState<IMovieResponse[]>([]);
-  const [loading, setLoading] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(true);
   const [errorMovies, setErrorMovies] = React.useState<boolean>(false);
 
   const getPopular = async () => {
     await getPopularMovies()
       .then((response) => {
-        if(response.data) {
-          setMovies(response.data.results);
+        if(response) {
+          console.log(response, "response");
+          setMovies(response);
         }
       })
       .catch((error) => {
@@ -23,15 +25,16 @@ const Popular: React.FC = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(false);
     getPopular();
   }, []);
 
   return (
     <MainContainer title='Popular'>
-      <p>
-        Hola Mundo
-      </p>
+      <MovieSlider
+        movies={movies}
+        title='Popular'
+      />
     </MainContainer>
   );
 };

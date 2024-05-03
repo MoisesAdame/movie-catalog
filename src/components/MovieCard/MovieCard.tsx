@@ -1,15 +1,25 @@
 import React from 'react'
 import { IMovieCard } from './types';
 import './movie-card.css'
-
 import { Pill } from '../Pill'
-
 import genres from '../../constants/genres.json'
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../routes/constants';
 
 /**
  * Card that all the important information and the poster of a given movie.
  */
-const MovieCard: React.FC<IMovieCard> = ({ title, genreId, posterPath, voteAverage }) => {
+const MovieCard: React.FC<IMovieCard> = ({ title, genreId, posterPath, voteAverage, movieId }) => {
+  // Order of the component.
+  // hooks
+  // states
+  // otras contnates
+  // functions
+  // useEffects
+  // return
+
+  const navigate = useNavigate();
+
   const getGenreName = (genreId: number) => {
     for(var genre of genres.genres) {
       if (genre.id === genreId) {
@@ -19,9 +29,16 @@ const MovieCard: React.FC<IMovieCard> = ({ title, genreId, posterPath, voteAvera
     return 'Unknown';
   }
 
+  const navigateMovies = (id: number, movieName: string) => {
+    navigate(`${ROUTES.SHOW.path}${id}`, { state: { movieName } });
+  }
+
   return (
-    
-    <div className='show-box'>
+    <div className='show-box' 
+        onClick={() => {
+          navigateMovies(movieId, title);
+        }}
+    >
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
       <a href="">
         <div className='movie-card'>
