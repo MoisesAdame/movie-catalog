@@ -1,15 +1,17 @@
 import React from 'react'
 import { IMovieCard } from './types';
-import './movie-card.css'
+import './MovieCard.css'
 import { Pill } from '../Pill'
 import genres from '../../constants/genres.json'
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../routes/constants';
+import { Star } from '@styled-icons/evaicons-solid/Star'
+import { IMAGE_SOURCE } from '../../constants/moviesMock';
 
 /**
  * Card that all the important information and the poster of a given movie.
  */
-const MovieCard: React.FC<IMovieCard> = ({ title, genreId, posterPath, voteAverage, movieId }) => {
+const MovieCard: React.FC<IMovieCard> = ({ title, genreId, posterPath, voteAverage, movieId, showInfo = true }) => {
   // Order of the component.
   // hooks
   // states
@@ -43,21 +45,27 @@ const MovieCard: React.FC<IMovieCard> = ({ title, genreId, posterPath, voteAvera
       <a href="">
         <div className='movie-card'>
           <div className='movie-card__image-container'>
-            <img src={posterPath} alt={title} className='movie-card__image'/>
+            <img src={`${IMAGE_SOURCE}${posterPath}`} alt={title} className='movie-card__image'/>
           </div>
-          <div className='movie-card__data-container'>
-            <Pill
-              genre={getGenreName(genreId)}
-              color='red'
-            />
-            <div className='movie-card__title'>
-                {title}
+          {
+            showInfo && 
+            <div className='movie-card__data-container'>
+              <Pill
+                genre={getGenreName(genreId)}
+                color='red'
+              />
+              
+              <div>
+                <div className='movie-card__title'>
+                    {title}
+                </div>
+                <div className='movie-card__vote-average'>
+                  <Star className='movie-card__icon'/> 
+                  <span className='movie-card__value'>{voteAverage} / 10</span>
+                </div>
+              </div>
             </div>
-            <div className='movie-card__vote-average'>
-              <span className="material-symbols-rounded">star</span>
-              <span className='movie-card__value'>{voteAverage} / 10</span>
-            </div>
-          </div>
+          }
         </div>
       </a>
     </div>

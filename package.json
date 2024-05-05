@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@storybook/addon-styling-webpack": "^1.0.0",
+    "@styled-icons/heroicons-solid": "^10.47.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -21,6 +22,9 @@
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "storybook": "^8.0.8",
+    "storybook-addon-react-router-v6": "^2.0.15",
+    "styled-components": "^6.1.9",
+    "styled-icons": "^10.47.1",
     "tailwindcss": "^3.4.3",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"

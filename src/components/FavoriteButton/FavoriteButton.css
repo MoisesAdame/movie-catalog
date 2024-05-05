@@ -1,0 +1,19 @@
+.favorite-button {
+  @apply transition ease-in-out duration-500 h-10 px-3 rounded text-white shadow active:shadow-xl;
+}
+
+.favorite-button--add-favorite {
+  @apply bg-cyan-500 hover:bg-cyan-700 active:bg-cyan-600;
+}
+
+.favorite-button--remove-favorite {
+  @apply bg-red-500 hover:bg-red-700 active:bg-red-600;
+}
+
+.favorite-button__container {
+  @apply flex items-center h-full whitespace-nowrap space-x-3;
+}
+
+.favorite-button__container__icon {
+  @apply aspect-square h-3/6;
+}

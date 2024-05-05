@@ -1,1 +1,1 @@
-export { getPopularMovies } from "./movies/getPopularMovies";
+export { getPopularMovies, getDetails } from "./movies";

@@ -4,10 +4,12 @@ import Header from '../components/Header/Header';
 
 const PrivateRouter = () => {
   return (
-    <div>
+    <>
       <Header/>
-      <Outlet/>
-    </div>
+      <div className='px-3'>
+        <Outlet/>
+      </div>
+    </>
   );
 };
 

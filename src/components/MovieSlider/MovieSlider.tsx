@@ -1,5 +1,4 @@
 import React from 'react';
-import { IMAGE_SOURCE, movies } from '../../constants/moviesMock';
 import { MovieCard } from '../MovieCard';
 import { IMovieSlider } from './types';
 import './movie-slider.css';
@@ -16,7 +15,7 @@ const MovieSlider: React.FC<IMovieSlider> = ({ title, movies }) => {
             key={index}
             title={movie.title}
             genreId={movie.genre_ids[0]}
-            posterPath={IMAGE_SOURCE + movie.poster_path}
+            posterPath={movie.poster_path}
             voteAverage={movie.vote_average}
             movieId={movie.id}
           />

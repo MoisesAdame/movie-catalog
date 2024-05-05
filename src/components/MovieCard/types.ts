@@ -15,5 +15,12 @@ export interface IMovieCard {
    * Average calification given by the viewers.
    */
   voteAverage: number;
+  /**
+   * Id of the movie.
+   */
   movieId: number;
+  /**
+   * If true, the movie card will show the information of the movie.
+   */
+  showInfo?: boolean;
 }

@@ -27,9 +27,13 @@
 }
 
 .movie-card__vote-average {
-  @apply flex text-xs;
+  @apply h-5 flex text-xs;
 }
 
 .movie-card__value {
   @apply flex flex-col justify-center ml-1;
+}
+
+.movie-card__icon {
+  @apply flex aspect-square;
 }

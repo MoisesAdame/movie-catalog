@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import MovieCard from './MovieCard';
 import { IMAGE_SOURCE, movies } from '../../constants/moviesMock';
+import { withRouter } from 'storybook-addon-react-router-v6';
 
 const meta = {
-  title: 'MovieCard',
+  title: 'Components/MovieCard',
   component: MovieCard,
+  decorators: [withRouter],
   parameters: {
     layout: 'centered',
   },
