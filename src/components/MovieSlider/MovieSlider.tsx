@@ -12,9 +12,9 @@ const MovieSlider: React.FC<IMovieSlider> = ({ title, movies }) => {
         </span>
       )}
       <div className='movie-slider__container__slider'>
-        {movies.map((movie, index) => (
+        {movies.map((movie) => (
           <MovieCard
-            key={index}
+            key={movie.id}
             title={movie.title}
             genreId={movie.genre_ids[0]}
             posterPath={movie.poster_path}

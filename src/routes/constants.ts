@@ -4,7 +4,7 @@ export const ROUTES = {
         name: 'HOME'
     },
     POPULAR: {
-        path: '/popular',
+        path: '/popular/view_all',
         name: 'POPULAR'
     },
     TOP_RATED: {

@@ -1,0 +1,7 @@
+.home__slider-header {
+  @apply flex justify-between mb-5;
+}
+
+.home__slider-header__title {
+  @apply text-2xl font-extrabold;
+}

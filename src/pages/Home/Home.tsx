@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
-import { MovieSlider } from '../../components';
+import { useNavigate } from 'react-router';
+import { MovieSlider, ViewAllButton } from '../../components';
 import { getTopRated, getNowPlaying, getPopularMovies } from '../../services';
 import { IMovieResponse } from '../../services/movies/types';
+import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [topRatedMovies, setTopRatedMovies] = useState<IMovieResponse[]>([]);
   const [nowPlayingMovies, setNowPlayingMovies] = useState<IMovieResponse[]>([]);
   const [popularMovies, setPopularMovies] = useState<IMovieResponse[]>([]);
@@ -41,13 +45,37 @@ const Home = () => {
             Error loading movies
           </div>
         ) : (
-          <div>
+          <div className='flex flex-col space-y-5'>
+            <div className='home__slider-header'>
+              <h1 className='home__slider-header__title'>
+                Top Rated Movies
+              </h1>
+              <ViewAllButton 
+                onClick={() => {navigate('/top_rated/view_all')}}
+              />
+            </div>
             <MovieSlider 
               movies={topRatedMovies}
             />
+            <div className='home__slider-header'>
+              <h1 className='home__slider-header__title'>
+                Now Playing Movies
+              </h1>
+              <ViewAllButton 
+                onClick={() => {navigate('/now_playing/view_all')}}
+              />
+            </div>
             <MovieSlider 
               movies={nowPlayingMovies}
             />
+            <div className='home__slider-header'>
+              <h1 className='home__slider-header__title'>
+                Popular Movies
+              </h1>
+              <ViewAllButton 
+                onClick={() => {navigate('/popular/view_all')}}
+              />
+            </div>
             <MovieSlider 
               movies={popularMovies}
             />
