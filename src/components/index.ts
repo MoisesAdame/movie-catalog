@@ -6,3 +6,4 @@ export { MovieSlider } from './MovieSlider';
 export { FavoriteButton } from './FavoriteButton';
 export { HamburguerButton } from './HamburguerButton';
 export { MovieInformation } from './MovieInformation';
+export { ViewAllButton } from './ViewAllButton';

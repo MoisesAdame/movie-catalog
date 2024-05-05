@@ -1,0 +1,11 @@
+.view-all-button {
+  @apply transition ease-in-out duration-500 h-10 px-3 rounded text-white shadow active:shadow-xl bg-red-500 hover:bg-red-700 active:bg-red-600;
+}
+
+.view-all-button__conatiner {
+  @apply flex items-center h-full whitespace-nowrap space-x-3;
+}
+
+.view-all-button__icon {
+  @apply aspect-square h-4/6;
+}
