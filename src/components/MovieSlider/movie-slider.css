@@ -1,5 +1,5 @@
 .movie-slider__container {
-  @apply flex flex-col h-80 mb-5;
+  @apply flex flex-col h-96 mb-5;
 }
 
 .movie-slider__container__title {

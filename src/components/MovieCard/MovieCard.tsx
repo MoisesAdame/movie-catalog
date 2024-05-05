@@ -36,10 +36,11 @@ const MovieCard: React.FC<IMovieCard> = ({ title, genreId, posterPath, voteAvera
   }
 
   return (
-    <div className='show-box' 
-        onClick={() => {
-          navigateMovies(movieId, title);
-        }}
+    <div 
+      className='show-box' 
+      onClick={() => {
+        navigateMovies(movieId, title);
+      }}
     >
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
       <a href="">

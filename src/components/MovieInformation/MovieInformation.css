@@ -1,9 +1,9 @@
 .movie-information {
-  @apply flex w-full h-96 flex-col md:flex-row;
+  @apply flex w-full flex-col md:flex-row;
 }
 
 .movie-information__movie-card {
-  @apply h-full;
+  @apply h-96;
 }
 
 .movie-information__information-conatiner {

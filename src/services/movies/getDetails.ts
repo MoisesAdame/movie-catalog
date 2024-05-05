@@ -6,7 +6,6 @@ export const getDetails = async (movieId: string) => {
   await httpInstance
     .get(endpoint)
     .then((response) => {
-      console.log(response.data, "response");
       res = response.data;
     })
     .catch((error) => {
