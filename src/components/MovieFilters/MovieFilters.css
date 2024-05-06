@@ -1,0 +1,15 @@
+.filter-conatiner {
+  @apply flex-wrap items-center;
+}
+
+.filter-conatiner__button {
+  @apply h-10 mr-2 mt-2 transition ease-in-out duration-500 px-3 rounded text-white shadow active:shadow-xl bg-cyan-500 hover:bg-green-500;
+}
+
+.filter-conatiner__button--active {
+  @apply bg-green-400;
+}
+.filter-conatiner__button__icon {
+  @apply aspect-square h-3/6;
+}
+

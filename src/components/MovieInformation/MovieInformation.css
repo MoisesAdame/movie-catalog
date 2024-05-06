@@ -1,5 +1,5 @@
 .movie-information {
-  @apply flex w-full flex-col md:flex-row;
+  @apply flex w-full flex-col md:flex-row md:space-x-5;
 }
 
 .movie-information__movie-card {

@@ -1,5 +1,5 @@
 .show-box {
-  @apply h-full aspect-[2/3] mr-5 drop-shadow-md;
+  @apply h-full aspect-[2/3] drop-shadow-md;
 }
 
 .movie-card {

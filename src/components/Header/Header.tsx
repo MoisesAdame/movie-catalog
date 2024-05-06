@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../routes/constants';
-import { HamburguerButton } from '../HamburguerButton';
+import { HamburguerButton } from '../HamburguerButton'; 
 import classNames from 'classnames';
 import './Header.css';
 
@@ -32,15 +32,41 @@ const Header: React.FC = () => {
           <Link to={ROUTES.HOME.path}>Movies DB</Link>
         </span>
         <ul className='header__main-conatiner__list-container'>
-          {Object.values(ROUTES).map(route => (
-            <li key={route.path} className='header__main-conatiner__list-container__element'>
-              <Link 
-                to={route.path} 
-                className={location.pathname === route.path ? 'header__main-conatiner__list-container__element--active' : ''}>
-                {route.name}
-              </Link>
-            </li>
-          ))}
+          <li key={ROUTES.HOME.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.HOME.path} 
+              className={location.pathname === ROUTES.HOME.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.HOME.name}
+            </Link>
+          </li>
+          <li key={ROUTES.POPULAR.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.POPULAR.path} 
+              className={location.pathname === ROUTES.POPULAR.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.POPULAR.name}
+            </Link>
+          </li>
+          <li key={ROUTES.TOP_RATED.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.TOP_RATED.path} 
+              className={location.pathname === ROUTES.TOP_RATED.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.TOP_RATED.name}
+            </Link>
+          </li>
+          <li key={ROUTES.NOW_PLAYING.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.NOW_PLAYING.path} 
+              className={location.pathname === ROUTES.NOW_PLAYING.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.NOW_PLAYING.name}
+            </Link>
+          </li>
+          <li key={ROUTES.MY_FAVORITES.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.MY_FAVORITES.path} 
+              className={location.pathname === ROUTES.MY_FAVORITES.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.MY_FAVORITES.name}
+            </Link>
+          </li>
         </ul>
         <div className='md:hidden'>
           <HamburguerButton 
@@ -50,16 +76,42 @@ const Header: React.FC = () => {
       </div>
       <div className={lowerConatinerClasses}>
         <ul className='header__main-conatiner__list-container--lower'>
-            {Object.values(ROUTES).map(route => (
-              <li key={route.path} className='header__main-conatiner__list-container__element'>
-                <Link 
-                  to={route.path} 
-                  className={location.pathname === route.path ? 'header__main-conatiner__list-container__element--active' : ''}>
-                  {route.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <li key={ROUTES.HOME.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.HOME.path} 
+              className={location.pathname === ROUTES.HOME.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.HOME.name}
+            </Link>
+          </li>
+          <li key={ROUTES.POPULAR.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.POPULAR.path} 
+              className={location.pathname === ROUTES.POPULAR.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.POPULAR.name}
+            </Link>
+          </li>
+          <li key={ROUTES.TOP_RATED.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.TOP_RATED.path} 
+              className={location.pathname === ROUTES.TOP_RATED.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.TOP_RATED.name}
+            </Link>
+          </li>
+          <li key={ROUTES.NOW_PLAYING.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.NOW_PLAYING.path} 
+              className={location.pathname === ROUTES.NOW_PLAYING.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.NOW_PLAYING.name}
+            </Link>
+          </li>
+          <li key={ROUTES.MY_FAVORITES.path} className='header__main-conatiner__list-container__element'>
+            <Link 
+              to={ROUTES.MY_FAVORITES.path} 
+              className={location.pathname === ROUTES.MY_FAVORITES.path ? 'header__main-conatiner__list-container__element--active' : ''}>
+                {ROUTES.MY_FAVORITES.name}
+            </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from '@styled-icons/evaicons-solid/Menu';
+import { Menu } from '@styled-icons/material/Menu';
 import './HamburguerButton.css';
 import { IHamburguerButton } from './types';
 

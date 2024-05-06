@@ -1,84 +1,80 @@
 import React, { useEffect } from 'react';
-import MainContainer from '../../components/MainContainer/MainContainer';
 import { useState } from 'react';
 import { IMovieDetail } from './types';
 import { MovieCard } from '../../components';
+import { getDetails } from '../../services';
 
 const MyFavorites = () => {
-  const [loading, setLoading] = useState<boolean>(true);
   const [movies, setMovies] = useState<IMovieDetail[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [errorMovies, setErrorMovies] = React.useState<boolean>(false);
   const favorites: string = localStorage.getItem('favorites') || "";
 
-  // const runGetItems = async () => {
-  //   if(favorites.length > 0) {
-  //     const favoritesArray = JSON.parse(favorites);
-  //     const newMovies = await Promise.all(
-  //       favoritesArray.map(async (id: string) => {
-  //         return getDetails(id)
-  //           .then((res) => {
-  //             if(res && res) {
-  //               return res.data
-  //             }
-  //           })
-  //           .catch((err) => {
-  //             console.log(err, "err");
-  //          });
-  //     }
-  //     setMovies(newMovies);
-  //   }
-  // }
+  const runGetItems = async () => {
+    if(favorites.length) {
+      const favoritesArray = JSON.parse(favorites);
+      const newMovies = await Promise.all(
+        favoritesArray.map(async (movieId: string) => {
+          const response = await getDetails(movieId);
+          if(!response) {
+            setErrorMovies(true);
+          }else{
+            return response;
+          }
+        })
+      );
+      setMovies(newMovies);
+    }
+    setLoading(false);
+  }
 
   useEffect(() => {
     setLoading(true);
-    //runGetItems();
+    runGetItems();
   }, []);
 
   return (
-    <MainContainer title='My Favorites'>
-      <p>
-        Hola Mundo
-      </p>
-
-      {loading ? (
-        <div>
-          <h2>
-            My Favorites
-          </h2>
-          {favorites && favorites.length > 0 ? (
-            <div>
-              {movies && movies.length > 0 ? (
-                <div>
-                  {movies.map((movie: IMovieDetail) => (
-                    <MovieCard 
-                      key={movie.id}
-                      title={movie.title}
-                      genreId={movie.genres[0].id}
-                      posterPath={movie.poster_path}
-                      voteAverage={movie.vote_average}
-                      movieId={movie.id}
-                    />
-                  ))}
-                </div>
-              ) :(
-                <div>
-                  Error fetching movies
-                </div>
-              )}
-            </div>
-          ) : (
-            <h3>
-              Opps, it seems you dont have any favorites.
-            </h3>
-          )}
-        </div>
-      ) : (
-        <div>
-          <h2>
+    <>
+      {
+        loading ? (
+          <div>
             Loading...
-          </h2>
-        </div>
-      )}
-    </MainContainer>
+          </div>
+        ) : errorMovies ? (
+          <div>
+            Error loading movies
+          </div>
+        ) : (
+          <>
+            <div className='flex flex-col md:flex-row justify-between mb-5'>
+              <h1 className='text-3xl font-bold'>My Favorite Movies</h1>
+            </div>
+            {
+              !movies.length ? (
+                <div>
+                  No favorites added
+                </div>
+              ) : (
+                <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4'>
+                  {
+                    movies.map((movie) => (
+                      <MovieCard
+                        key={movie.id}
+                        title={movie.title}
+                        genreId={movie.genres[0].id}
+                        posterPath={movie.poster_path}
+                        voteAverage={movie.vote_average}
+                        movieId={movie.id}
+                      />
+                    ))
+                  }
+                </div>
+              )
+            }
+          </>
+        )
+      }
+    </>
   );
 };
 

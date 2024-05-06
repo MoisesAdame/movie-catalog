@@ -7,5 +7,5 @@
 }
 
 .movie-slider__container__slider {
-  @apply flex h-full justify-between overflow-x-scroll overflow-y-hidden;
+  @apply flex h-full justify-between overflow-x-scroll overflow-y-hidden space-x-5;
 }
