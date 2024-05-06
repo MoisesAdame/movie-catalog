@@ -14,3 +14,9 @@ A web application for cataloging movies, built with React, TypeScript, and style
 - Search and filter moves by name, type, etc.
 - Add new movies to the favorites list.
 
+## How to run locally
+1. Clone the repo.
+2. Add a .env file with the key REACT_APP_MDB_API_KEY.
+3. Run yarn install,
+4. Run yarn start.
+5. Enjoy.
