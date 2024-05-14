@@ -3,8 +3,11 @@ import { useState } from 'react';
 import { IMovieDetail } from './types';
 import { MovieCard } from '../../components';
 import { getDetails } from '../../services';
+import { UserObject } from '../../store/app-context/types';
+import { useAppContext } from '../../store/app-context/app-context';
 
 const MyFavorites = () => {
+  const { user, setUser } = useAppContext();
   const [movies, setMovies] = useState<IMovieDetail[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [errorMovies, setErrorMovies] = React.useState<boolean>(false);
@@ -31,6 +34,15 @@ const MyFavorites = () => {
   useEffect(() => {
     setLoading(true);
     runGetItems();
+  }, []);
+
+  useEffect(() => {
+    const user: UserObject = {
+      id: '1',
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'mail'
+    }
   }, []);
 
   return (

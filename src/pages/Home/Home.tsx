@@ -3,10 +3,14 @@ import { useNavigate } from 'react-router';
 import { MovieSlider, ViewAllButton } from '../../components';
 import { getTopRated, getNowPlaying, getPopularMovies } from '../../services';
 import { IMovieResponse } from '../../services/movies/types';
+import { useAppContext } from '../../store/app-context/app-context';
 import './Home.css';
 
 const Home = () => {
+  const { user, setUser } = useAppContext();
   const navigate = useNavigate();
+
+  console.log(user);
 
   const [topRatedMovies, setTopRatedMovies] = useState<IMovieResponse[]>([]);
   const [nowPlayingMovies, setNowPlayingMovies] = useState<IMovieResponse[]>([]);
@@ -31,6 +35,15 @@ const Home = () => {
 
   useEffect(() => {
     getHomeMovies();
+  }, []);
+
+  useEffect(() => {
+    if(typeof user === 'undefined') {
+      const localUser = localStorage.getItem('user');
+      if(localUser) {
+        setUser(JSON.parse(localUser));
+      }
+    }
   }, []);
 
   return (
