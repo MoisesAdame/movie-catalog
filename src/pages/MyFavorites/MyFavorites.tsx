@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { IMovieDetail } from './types';
 import { MovieCard } from '../../components';
 import { getDetails } from '../../services';
-import { UserObject } from '../../store/app-context/types';
+// import { UserObject } from '../../store/app-context/types';
 import { useAppContext } from '../../store/app-context/app-context';
 
 const MyFavorites = () => {
@@ -36,14 +36,14 @@ const MyFavorites = () => {
     runGetItems();
   }, []);
 
-  useEffect(() => {
-    const user: UserObject = {
-      id: '1',
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'mail'
-    }
-  }, []);
+  // useEffect(() => {
+  //   const user: UserObject = {
+  //     id: '1',
+  //     firstName: 'John',
+  //     lastName: 'Doe',
+  //     email: 'mail'
+  //   }
+  // }, []);
 
   return (
     <>

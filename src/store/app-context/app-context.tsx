@@ -1,10 +1,14 @@
-import { AppContextProps, AppState, Tokens, UserObject } from './types';
-import React, { createContext, useContext, useState } from 'react';
+import { AppContextProps, AppState, Tokens } from './types';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { auth } from '../../firebase';
+import { User, UserCredential, createUserWithEmailAndPassword, getIdToken, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { httpInstance } from '../../services/httpinstance';
 
 const AppContext = createContext<AppState | undefined>(undefined);
 
 export const AppContextProvider = ({ children }: AppContextProps) => {
-  const [user, setUser] = useState<UserObject | undefined>(undefined);
+  	const [user, setUser] = useState<User | null>(null);
+	const [loadingContext, setLoadingContext] = useState<boolean>(true);
 	const [tokens, setToken] = useState<Tokens | undefined>(undefined);
 
 	const setTokenState = (accessToken: string, refreshToken: string) => {
@@ -12,15 +16,53 @@ export const AppContextProvider = ({ children }: AppContextProps) => {
 		setToken({ accessToken, refreshToken });
 	};
 
-	const logOut = () => {
-		setUser(undefined);
-		setToken(undefined);
-		localStorage.removeItem('tokens');
-		localStorage.removeItem('user');
+	const signUp = (email: string, password: string): Promise<UserCredential> => {
+		return createUserWithEmailAndPassword(auth, email, password);
 	};
 
+	const login = (email: string, password: string): Promise<UserCredential> => {
+		return signInWithEmailAndPassword(auth, email, password);
+	};
+
+	const logOut = (): Promise<void> => {
+		return signOut(auth);
+	};
+
+	useEffect(() => {
+		onAuthStateChanged(auth, (currentUser) => {
+			setUser(currentUser);
+			setLoadingContext(false);
+
+			if( currentUser ){
+				httpInstance.interceptors.request.use(
+					async ( config ) => {
+					const newConfig = {...config};
+					const token = await getIdToken(currentUser);
+					// newConfig.headers.Authorization = `Bearer ${token}`;
+					return newConfig;
+				  },
+				  (error) => {
+					// console.log
+					return Promise.reject(error);
+				  }
+				);
+			}
+		})
+	}, []);
+
 	return (
-		<AppContext.Provider value={{ user, setUser, tokens, setToken: setTokenState, logOut }}>
+		// Cambiar foto
+		<AppContext.Provider 
+			value={{
+				user,
+				setUser,
+				tokens,
+				setTokenState,
+				logOut,
+				signUp,
+				login,
+				loadingContext
+				}}>
 			{children}
 		</AppContext.Provider>
 	);

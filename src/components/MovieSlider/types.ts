@@ -9,4 +9,8 @@ export interface IMovieSlider {
    * Movies to display
    */
   movies: IMovieResponse[];
+  /**
+   * Test id for the component
+   */
+  testId?: string;
 };

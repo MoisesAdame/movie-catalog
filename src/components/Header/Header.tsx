@@ -1,14 +1,18 @@
 import React, { useEffect, useState }  from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../routes/constants';
 import { HamburguerButton } from '../HamburguerButton'; 
 import classNames from 'classnames';
 import './Header.css';
+import { useAppContext } from '../../store/app-context/app-context';
 
 /**
  * Header component for navigation inside the page.
  */
 const Header: React.FC = () => {
+  const { logOut } = useAppContext();
+  const navigate = useNavigate();
+
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState<string>('');
   const [isHidden, setIsHidden] = useState<boolean>(true);

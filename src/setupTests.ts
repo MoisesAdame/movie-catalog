@@ -3,3 +3,16 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import {TextDecoder, TextEncoder} from 'util';
+
+global.TextEncoder = TextEncoder;
+// @ts-expect-error
+global.TextDecoder = TextDecoder;
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => jest.fn(),
+    useLocation: () => jest.fn(),
+    useParams: () => jest.fn()
+    
+}))

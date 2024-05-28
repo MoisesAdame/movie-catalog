@@ -1,25 +1,30 @@
-import React from 'react';
+import { User, UserCredential } from "firebase/auth";
 
 export interface UserObject {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
 }
 
 export interface Tokens {
-  accessToken: string;
-  refreshToken: string;
+    accessToken: string;
+    refreshToken: string;
 }
 
-export interface AppState {
-  user: UserObject | undefined;
-  setUser: (user: UserObject) => void;
-  tokens: Tokens | undefined;
-  setToken: (accessToken: string, refreshToken: string) => void;
-  logOut: () => void;
+export type AppState = {
+    user: User | null;
+    setUser: (user: User) => void;
+    // accountType: string;
+    // setAccountType: (accountType: string) => void;
+    tokens: Tokens | undefined;
+    setTokenState: (accessToken: string, refreshToken: string) => void;
+    logOut: () => Promise<void>;
+    signUp: (email: string, password: string) => Promise<UserCredential>;
+    login: (email: string, password: string) => Promise<UserCredential>;
+    loadingContext: boolean;
 }
 
 export type AppContextProps = {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }

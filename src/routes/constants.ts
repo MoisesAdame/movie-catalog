@@ -23,4 +23,12 @@ export const ROUTES = {
         path: '/show/',
         name: 'SHOW',
     },
+    Login: {
+        path: '/login',
+        name: 'LOGIN',
+    },
+    Register: {
+        path: '/register',
+        name: 'REGISTER',
+    },
 };
